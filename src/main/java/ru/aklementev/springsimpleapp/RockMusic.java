@@ -1,8 +1,5 @@
 package ru.aklementev.springsimpleapp;
 
-import org.springframework.stereotype.Component;
-
-@Component("RockMusicBean")
 public class RockMusic implements Music {
 
     @Override
