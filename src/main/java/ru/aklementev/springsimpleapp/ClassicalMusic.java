@@ -1,5 +1,8 @@
 package ru.aklementev.springsimpleapp;
 
+import org.springframework.stereotype.Component;
+
+@Component("ClassicalMusicBean")
 public class ClassicalMusic implements Music {
 
     public static ClassicalMusic getNewClassicalMusic() {
