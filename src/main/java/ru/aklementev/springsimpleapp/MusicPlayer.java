@@ -1,35 +1,37 @@
 package ru.aklementev.springsimpleapp;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MusicPlayer {
 
-    private Music music;
-    private String name;
-    private int volume;
+    private Music cMusic;
+    private Music rMusic;
 
-    public String getName() {
-        return name;
+    @Autowired
+    public MusicPlayer(@Qualifier("classicalMusic") Music cMusic,
+                       @Qualifier("rockMusic") Music rMusic) {
+        this.cMusic = cMusic;
+        this.rMusic = rMusic;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void playClassicalMusic() {
+        System.out.println("Playing classical song: " + cMusic.getSong());
     }
 
-    public int getVolume() {
-        return volume;
+    public void playRockMusic() {
+        System.out.println("Playing rock song: " + rMusic.getSong());
     }
 
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public MusicPlayer(Music music) {
-        this.music = music;
-    }
-
-
-    public void playMusic() {
-        System.out.print("Playing: ");
-        music.getSong();
+    public void playMusic(Genre genre) {
+        if (genre == Genre.ROCK) {
+            System.out.println("Playing random rock song: " + rMusic.getSong());
+        }
+        if (genre == Genre.CLASSICAL) {
+            System.out.println("Playing random classical song: " + cMusic.getSong());
+        }
     }
 
 }

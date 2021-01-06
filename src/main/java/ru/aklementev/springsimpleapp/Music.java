@@ -1,7 +1,7 @@
 package ru.aklementev.springsimpleapp;
 
 public interface Music {
-   void getSong();
+   String getSong();
    void getGenre();
 
 

@@ -2,12 +2,12 @@ package ru.aklementev.springsimpleapp;
 
 import org.springframework.stereotype.Component;
 
-@Component("ClassicalMusicBean")
+import java.util.Random;
+
+@Component
 public class ClassicalMusic implements Music {
 
-    public static ClassicalMusic getNewClassicalMusic() {
-        return new ClassicalMusic();
-    }
+    String[] classicalSongsList = new String[]{"classical song 1", "classical song 2", "classical song 3"};
 
     public void myInitMethod() {
         System.out.println("Starting initialization method...");
@@ -18,8 +18,8 @@ public class ClassicalMusic implements Music {
     }
 
     @Override
-    public void getSong() {
-        System.out.println("Hungarian Rhapsody");
+    public String getSong() {
+        return classicalSongsList[new Random().nextInt(classicalSongsList.length)];
     }
 
     @Override
