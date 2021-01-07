@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
-@Component
+//@Component
 public class RockMusic implements Music {
 
     private String[] rockSongsList = new String[]{"rock song 1", "rock song 2", "rock song 3"};
